@@ -20,16 +20,12 @@ const SolicitudList = () => {
   }, []);
 
   return (
-    <div className="container">
-      <SideMenu />
-      <div className="content">
+    <div className="container" id="container-solicitudes">
+    <SideMenu />
+    <div className="content" id="content-solicitudes">
         <h1>Gestión de Cambios y Devoluciones</h1>
         <h2>Lista de solicitudes</h2>
-        <div className="buscadorDos">
-          <input type="text" placeholder="N° Orden" />
-          <input type="text" placeholder="Nombre Cliente" />
-          <button>Buscar</button>
-        </div>
+       
         <table>
           <thead>
             <tr>

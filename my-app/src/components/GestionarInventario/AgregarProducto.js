@@ -37,24 +37,26 @@ const AgregarProducto = ({ onProductoAgregado }) => {
     formData.append('cantidadMinimaRequerida', cantidadMinimaRequerida);
 
     try {
-        const token = localStorage.getItem('token');
-        const response = await axios.post('http://localhost:8080/productos', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        console.log('Producto agregado:', response.data);
-        window.alert('El producto se ha agregado con éxito.'); // Mostrar el aviso del navegador
-        onProductoAgregado();
-      } catch (error) {
-        console.error('Error al agregar el producto:', error);
-      }
-    };
+      const token = localStorage.getItem('token'); // Obtener el token del localStorage
+  
+      const response = await axios.post('http://localhost:8080/productos', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`, // Incluir el token en el encabezado
+        },
+      });
+  
+      console.log('Producto agregado:', response.data);
+      window.alert('El producto se ha agregado con éxito.');
+      onProductoAgregado();
+    } catch (error) {
+      console.error('Error al agregar el producto:', error);
+    }
+  };
 
   return (
-    <form className="agregar-producto-form" onSubmit={handleSubmit}>
-      <div className="form-group">
+    <form id="agregar-producto-form" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="nombre">Nombre:</label>
         <input
           type="text"
@@ -62,18 +64,20 @@ const AgregarProducto = ({ onProductoAgregado }) => {
           placeholder="Nombre"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="descripcion">Descripción:</label>
         <textarea
           id="descripcion"
           placeholder="Descripción"
           value={descripcion}
           onChange={(e) => setDescripcion(e.target.value)}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         ></textarea>
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="precio">Precio:</label>
         <input
           type="number"
@@ -81,9 +85,10 @@ const AgregarProducto = ({ onProductoAgregado }) => {
           placeholder="Precio"
           value={precio}
           onChange={(e) => setPrecio(parseFloat(e.target.value))}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="talla">Talla:</label>
         <input
           type="number"
@@ -91,9 +96,10 @@ const AgregarProducto = ({ onProductoAgregado }) => {
           placeholder="Talla"
           value={talla}
           onChange={(e) => setTalla(parseInt(e.target.value))}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="color">Color:</label>
         <input
           type="text"
@@ -101,38 +107,50 @@ const AgregarProducto = ({ onProductoAgregado }) => {
           placeholder="Color"
           value={color}
           onChange={(e) => setColor(e.target.value)}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="genero">Género:</label>
-        <input
-          type="text"
+        <select
           id="genero"
-          placeholder="Género"
           value={genero}
           onChange={(e) => setGenero(e.target.value)}
-        />
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
+        >
+          <option value="">Seleccione un género</option>
+          <option value="Mujer">Mujer</option>
+          <option value="Hombre">Hombre</option>
+          <option value="Niño">Niño</option>
+        </select>
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="tipoZapato">Tipo de Zapato:</label>
-        <input
-          type="text"
+        <select
           id="tipoZapato"
-          placeholder="Tipo de Zapato"
           value={tipoZapato}
           onChange={(e) => setTipoZapato(e.target.value)}
-        />
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
+        >
+          <option value="">Seleccione un tipo de zapato</option>
+          <option value="Casuales">Casuales</option>
+          <option value="Sandalias">Sandalias</option>
+          <option value="Botas">Botas</option>
+          <option value="Zapatillas">Zapatillas</option>
+          <option value="Elegantes">Elegantes</option>
+        </select>
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="imagen">Imagen:</label>
         <input
           type="file"
           id="imagen"
           accept="image/*"
           onChange={handleImagenChange}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="cantidad">Cantidad:</label>
         <input
           type="number"
@@ -140,9 +158,10 @@ const AgregarProducto = ({ onProductoAgregado }) => {
           placeholder="Cantidad"
           value={cantidad}
           onChange={(e) => setCantidad(parseInt(e.target.value))}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="stock">Stock:</label>
         <input
           type="number"
@@ -150,9 +169,10 @@ const AgregarProducto = ({ onProductoAgregado }) => {
           placeholder="Stock"
           value={stock}
           onChange={(e) => setStock(parseInt(e.target.value))}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <div className="form-group">
+      <div className="form-group" style={{ width: '100%' }}>
         <label htmlFor="cantidadMinimaRequerida">Cantidad Mínima Requerida:</label>
         <input
           type="number"
@@ -160,9 +180,12 @@ const AgregarProducto = ({ onProductoAgregado }) => {
           placeholder="Cantidad Mínima Requerida"
           value={cantidadMinimaRequerida}
           onChange={(e) => setCantidadMinimaRequerida(parseInt(e.target.value))}
+          style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box' }}
         />
       </div>
-      <button type="submit">Agregar Producto</button>
+      <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#8FBDBB', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', alignSelf: 'flex-start' }}>
+        Agregar Producto
+      </button>
     </form>
   );
 };

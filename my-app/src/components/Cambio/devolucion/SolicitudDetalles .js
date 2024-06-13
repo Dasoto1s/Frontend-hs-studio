@@ -28,9 +28,10 @@ const SolicitudDetalles = () => {
     const confirmacion = window.confirm(`¿Estás seguro de cambiar el estado de la solicitud a ${nuevoEstado === '0' ? 'pendiente' : 'atendido'}?`);
     if (confirmacion) {
       axios
-        .put(`http://localhost:8080/solicitud/${solicitud.N_solicitud}`, { Estado_solicitud: nuevoEstado })
+        .put(`http://localhost:8080/solicitud/${solicitud.N_solicitud}`, { ...solicitud, Estado_solicitud: nuevoEstado })
         .then((response) => {
           console.log(response.data);
+          setSolicitud({ ...solicitud, Estado_solicitud: nuevoEstado });
           setEstadoSolicitud(nuevoEstado);
         })
         .catch((error) => {

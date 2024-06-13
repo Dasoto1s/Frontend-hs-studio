@@ -23,13 +23,13 @@ const PromocionesDestacados = () => {
     }
   };
 
-  const handleEliminarPromocion = (promocionId) => {
+  const handleEliminarPromocion = (id) => {
     const confirmacion = window.confirm('¿Estás seguro de que quieres eliminar este producto de promociones?');
     if (confirmacion) {
-      axios.delete(`http://localhost:8080/promociones/${promocionId}`)
+      axios.delete(`http://localhost:8080/promociones/${id}`)
         .then(response => {
           // Actualizar la lista de promociones después de eliminar el producto
-          setPromociones(promociones.filter(promocion => promocion.id !== promocionId));
+          setPromociones(promociones.filter(promocion => promocion.id !== id));
         })
         .catch(error => {
           console.error('Error al eliminar el producto de promociones:', error);
@@ -51,6 +51,13 @@ const PromocionesDestacados = () => {
     setPromociones([...promociones, nuevaPromocion]);
   };
 
+  const calcularPrecioConDescuento = (precio, descuento) => {
+    const precioOriginal = parseFloat(precio);
+    const descuentoDecimal = descuento / 100;
+    const precioConDescuento = precioOriginal - (precioOriginal * descuentoDecimal);
+    return Math.floor(precioConDescuento); // Convierte el resultado a un número entero
+  };
+
   return (
     <div className="container">
       <SideMenu />
@@ -69,21 +76,21 @@ const PromocionesDestacados = () => {
               <th>Género</th>
               <th>Tipo de Zapato</th>
               <th>Descuento</th>
+              <th>Total</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {promociones.map(promocion => (
               <tr key={promocion.id}>
-           <td>
-  {promocion.producto && promocion.producto.imagen && (
-    <img
-      src={`data:image/jpeg;base64,${promocion.producto.imagen}`}
-      alt={promocion.producto.nombre}
-    />
-  )}
-</td>
-                
+                <td>
+                  {promocion.producto && promocion.producto.imagen && (
+                    <img
+                      src={`data:image/jpeg;base64,${promocion.producto.imagen}`}
+                      alt={promocion.producto.nombre}
+                    />
+                  )}
+                </td>
                 <td>{promocion.producto ? promocion.producto.nombre : ''}</td>
                 <td>{promocion.producto ? promocion.producto.descripcion : ''}</td>
                 <td>{promocion.producto ? `$${promocion.producto.precio}` : ''}</td>
@@ -92,8 +99,9 @@ const PromocionesDestacados = () => {
                 <td>{promocion.producto ? promocion.producto.genero : ''}</td>
                 <td>{promocion.producto ? promocion.producto.tipoZapato : ''}</td>
                 <td>{promocion.descuento}%</td>
+                <td>{promocion.producto ? `$${calcularPrecioConDescuento(promocion.producto.precio, promocion.descuento)}` : ''}</td>
                 <td>
-                  <button onClick={() => handleEliminarPromocion(promocion.id)} class="eliminar">Eliminar</button>
+                  <button onClick={() => handleEliminarPromocion(promocion.id)} className="eliminar">Eliminar</button>
                 </td>
               </tr>
             ))}

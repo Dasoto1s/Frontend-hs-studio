@@ -36,12 +36,32 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-form">
+    <div className="login-container" style={{
+      display: 'flex',
+      justifyContent: 'star',
+      alignItems: 'star',
+      height: '100vh'
+    }}>
+      <div className="login-form" style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        padding: '2rem',
+        border: '1px solid #ccc',
+        borderRadius: '5px'
+      }}>
         <h2>Inicio de Sesión</h2>
         {error && <p className="error-message">{error}</p>}
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
+        <form onSubmit={handleSubmit} style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}>
+          <div className="form-group" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            marginBottom: '1rem'
+          }}>
             <label htmlFor="email">Correo electrónico:</label>
             <input
               type="email"
@@ -49,9 +69,14 @@ const AdminLogin = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              style={{ marginTop: '0.5rem' }}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group" style={{
+            display: 'flex',
+            flexDirection: 'column',
+            marginBottom: '1rem'
+          }}>
             <label htmlFor="password">Contraseña:</label>
             <input
               type="password"
@@ -59,9 +84,15 @@ const AdminLogin = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              style={{ marginTop: '0.5rem' }}
             />
           </div>
-          <button type="submit" className="login-button">Iniciar Sesión</button>
+          <button type="submit" className="login-button" style={{
+            padding: '0.5rem 1rem',
+            marginTop: '1rem'
+          }}>
+            Iniciar Sesión
+          </button>
         </form>
       </div>
     </div>

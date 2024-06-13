@@ -67,7 +67,10 @@ const Destacados = () => {
                     />
                   )}
                 </td>
-                <td>{destacado.producto ? destacado.producto.nombre : ''}</td>
+
+              
+
+                <td>{destacado.producto ? destacado.producto.nombre : '' }</td>
                 <td>{destacado.producto ? destacado.producto.descripcion : ''}</td>
                 <td>{destacado.producto ? `$${destacado.producto.precio}` : ''}</td>
                 <td>{destacado.producto ? destacado.producto.talla : ''}</td>

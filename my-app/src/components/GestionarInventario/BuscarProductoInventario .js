@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './BuscarProductoInventario '; // Importa el archivo CSS
 
 const BuscarProductoInventario = ({ onBusquedaRealizada }) => {
   const [busqueda, setBusqueda] = useState('');
@@ -15,15 +16,16 @@ const BuscarProductoInventario = ({ onBusquedaRealizada }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleBusqueda}>
+    <div className='buscadorInventario'>
+      <form onSubmit={handleBusqueda} className='search-form'>
         <input
           type="text"
           placeholder="Buscar producto por nombre"
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
+          
         />
-        <button type="submit">Buscar</button>
+        <button type="submit" className='search-button'>Buscar</button>
       </form>
     </div>
   );

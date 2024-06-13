@@ -14,7 +14,7 @@ const PedidoDetalles = () => {
         try {
           const response = await axios.get(`http://localhost:8080/admin/pedidos/${pedidoId}`);
           setPedido(response.data);
-          setEstadoPedido(response.data.Estado_solicitud || '0'); // Establecer '0' si Estado_solicitud es nulo
+          setEstadoPedido(response.data.estado_solicitud || '0'); // Establecer '0' si estado_solicitud es nulo
         } catch (error) {
           console.error('Error al obtener el pedido:', error);
         }
@@ -23,13 +23,14 @@ const PedidoDetalles = () => {
     fetchPedido();
   }, [pedidoId]);
 
-  const handleCambiarEstado = async () => {
+  const handleCambiarEstadoPedido = async () => {
     const nuevoEstado = estadoPedido === '0' ? '1' : '0';
     const confirmacion = window.confirm(`¿Estás seguro de cambiar el estado del pedido a ${nuevoEstado === '0' ? 'pendiente' : 'atendido'}?`);
     if (confirmacion) {
       try {
-        const response = await axios.put(`http://localhost:8080/admin/pedidos/${pedidoId}`, { Estado_solicitud: nuevoEstado });
+        const response = await axios.put(`http://localhost:8080/admin/pedidos/${pedidoId}`, nuevoEstado);
         console.log(response.data);
+        setPedido({ ...pedido, estado_solicitud: nuevoEstado });
         setEstadoPedido(nuevoEstado);
       } catch (error) {
         console.error('Error al actualizar el estado:', error);
@@ -92,49 +93,45 @@ const PedidoDetalles = () => {
         <div className="detalle-celda">Estado del Pedido:</div>
         <div className={`detalle-valor ${estadoPedido === '0' ? 'estado-pendiente' : 'estado-atendido'}`}>
           {estadoPedido === '0' ? 'Pendiente' : 'Atendido'}
-          <button onClick={handleCambiarEstado}>
+          <button onClick={handleCambiarEstadoPedido}>
             {estadoPedido === '0' ? 'Marcar como atendido' : 'Marcar como pendiente'}
           </button>
         </div>
       </div>
       <div className="detalle-fila">
         <div className="detalle-celda">Productos:</div>
-        <div className="detalle-valor">
-          <table className="tabla-productos">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Talla</th>
-                <th>Color</th>
-                <th>Género</th>
-                <th>Tipo de Zapato</th>
-                <th>Cantidad</th>
-                <th>Stock</th>
-                <th>Cantidad Mínima Requerida</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pedido.productos.map((producto) => (
-                <tr key={producto.idProducto}>
-                  <td>{producto.idProducto}</td>
-                  <td>{producto.nombre}</td>
-                  <td>{producto.descripcion}</td>
-                  <td>{producto.precio}</td>
-                  <td>{producto.talla}</td>
-                  <td>{producto.color}</td>
-                  <td>{producto.genero}</td>
-                  <td>{producto.tipoZapato}</td>
-                  <td>{producto.inventario.cantidad}</td>
-                  <td>{producto.inventario.stock}</td>
-                  <td>{producto.inventario.cantidadMinimaRequerida}</td>
+        {pedido.productos && (
+          <div className="detalle-valor">
+            <table className="tabla-productos">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>Descripción</th>
+                  <th>Precio</th>
+                  <th>Talla</th>
+                  <th>Color</th>
+                  <th>Género</th>
+                  <th>Tipo de Zapato</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {pedido.productos.map((producto) => (
+                  <tr key={producto.idProducto}>
+                    <td>{producto.idProducto}</td>
+                    <td>{producto.nombre}</td>
+                    <td>{producto.descripcion}</td>
+                    <td>{producto.precio}</td>
+                    <td>{producto.talla}</td>
+                    <td>{producto.color}</td>
+                    <td>{producto.genero}</td>
+                    <td>{producto.tipoZapato}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
       <Link to="/pedidos" className="btn-volver">
         Volver a la lista de pedidos

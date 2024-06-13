@@ -28,18 +28,22 @@ const BuscarProducto = ({ onPromocionAgregada, promociones }) => {
 
   return (
     <div>
-      <form onSubmit={handleBusqueda}>
+   
+      <form onSubmit={handleBusqueda} className="search-form">
         <input
           type="text"
           placeholder="Buscar producto por nombre o ID"
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
+          className="search-input"
         />
-        <button type="submit">Buscar</button>
+        <button type="submit" className="search-button">Buscar</button>
       </form>
       {resultados.length > 0 ? (
-        <table>
+        <div className="results-container"> 
+          <table className="results-table">
           <thead>
+            
             <tr>
               <th>Nombre</th>
               <th>Descripción</th>
@@ -68,6 +72,7 @@ const BuscarProducto = ({ onPromocionAgregada, promociones }) => {
             ))}
           </tbody>
         </table>
+        </div>
       ) : (
         <p>No se encontraron productos</p>
       )}

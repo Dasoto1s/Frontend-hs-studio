@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './BuscarProductoDestacado'; // Importa el archivo CSS
 
 const BuscarProductoDestacado = ({ onDestacadoAgregado, destacados }) => {
   const [busqueda, setBusqueda] = useState('');
@@ -30,46 +31,49 @@ const BuscarProductoDestacado = ({ onDestacadoAgregado, destacados }) => {
 
   return (
     <div>
-      <form onSubmit={handleBusqueda}>
+      <form onSubmit={handleBusqueda} className="search-form">
         <input
           type="text"
           placeholder="Buscar producto por nombre o ID"
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
+          className="search-input"
         />
-        <button type="submit">Buscar</button>
+        <button type="submit" className="search-button">Buscar</button>
       </form>
       {resultados.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Descripción</th>
-              <th>Precio</th>
-              <th>Talla</th>
-              <th>Color</th>
-              <th>Género</th>
-              <th>Tipo de Zapato</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {resultados.map((producto) => (
-              <tr key={producto.idProducto}>
-                <td>{producto.nombre}</td>
-                <td>{producto.descripcion}</td>
-                <td>{producto.precio}</td>
-                <td>{producto.talla}</td>
-                <td>{producto.color}</td>
-                <td>{producto.genero}</td>
-                <td>{producto.tipoZapato}</td>
-                <td>
-                  <button onClick={() => handleAgregarDestacado(producto)}>Agregar a Destacados</button>
-                </td>
+        <div className="results-container">
+          <table className="results-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Talla</th>
+                <th>Color</th>
+                <th>Género</th>
+                <th>Tipo de Zapato</th>
+                <th>Acciones</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {resultados.map((producto) => (
+                <tr key={producto.idProducto}>
+                  <td>{producto.nombre}</td>
+                  <td>{producto.descripcion}</td>
+                  <td>{producto.precio}</td>
+                  <td>{producto.talla}</td>
+                  <td>{producto.color}</td>
+                  <td>{producto.genero}</td>
+                  <td>{producto.tipoZapato}</td>
+                  <td>
+                    <button onClick={() => handleAgregarDestacado(producto)}>Agregar Destacados</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
         <p>No se encontraron productos</p>
       )}

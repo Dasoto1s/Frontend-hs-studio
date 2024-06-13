@@ -42,11 +42,17 @@ return (
     <SideMenu />
     <div className="content">
       <h1>Gestión de Pedidos</h1>
-      <div className="buscadorDos">
-        <input type="text" placeholder="N° Pedido" />
-        <input type="text" placeholder="Nombre Cliente" />
-        <button>Buscar</button>
-      </div>
+      <div className='buscadorInventario'>
+      <form  className='search-form'>
+        <input
+          type="text"
+          placeholder="N° Pedido"
+   
+          
+        />
+        <button type="submit" className='search-button'>Buscar</button>
+      </form>
+    </div>
       <table>
         <thead>
           <tr>

@@ -53,7 +53,7 @@ const GestionarInventario = () => {
         <h2>Gestionar Inventario</h2>
         <BuscarProducto onBusquedaRealizada={handleBusquedaRealizada} />
         <div className="table-container">
-          <table>
+          <table className="productos-tabla" id="tabla-inventario">
             <thead>
               <tr>
                 <th>Imagen</th>
@@ -64,6 +64,9 @@ const GestionarInventario = () => {
                 <th>Color</th>
                 <th>Género</th>
                 <th>Tipo de Zapato</th>
+                <th>Cantidad</th>
+                <th>Stock</th>
+                
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -78,18 +81,22 @@ const GestionarInventario = () => {
                       />
                     )}
                   </td>
-                  <td>{producto.nombre}</td>
-                  <td>{producto.descripcion}</td>
+                  <td className="nombre-celda"title={producto.nombre}>{producto.nombre}</td>
+                  <td className="descripcion-celda" title={producto.descripcion}>{producto.descripcion}</td>
                   <td>{producto.precio}</td>
                   <td>{producto.talla}</td>
                   <td>{producto.color}</td>
                   <td>{producto.genero}</td>
                   <td>{producto.tipoZapato}</td>
+                  <td>{producto.cantidad}</td>
+                  <td>{producto.stock}</td>
+                 
                   <td>
                     <button onClick={() => handleEditarProducto(producto)}>
                       Editar
                     </button>
-                    <button onClick={() => handleEliminarProducto(producto.idProducto)} class="eliminar">
+                    <br></br>
+                    <button onClick={() => handleEliminarProducto(producto.idProducto)} className="eliminar">
                       Eliminar
                     </button>
                   </td>
@@ -100,7 +107,25 @@ const GestionarInventario = () => {
         </div>
 
         <h2>Agregar productos</h2>
-        <button onClick={() => setMostrarFormularioAgregar(true)}>Agregar Producto</button>
+        <button
+  onClick={() => setMostrarFormularioAgregar(true)}
+  style={{
+    marginTop: '3rem',
+    padding: '1rem',
+    width: '80%',
+    borderRadius: '2rem',
+    backgroundColor: '#8FBDBB',
+    color: 'white',
+    border: 'none',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s',
+    margin: '1.4rem',
+    backgroundColor: '',
+    
+  }}
+>
+  Agregar Producto
+</button>
         {mostrarFormularioAgregar && (
           <AgregarProducto onProductoAgregado={() => {
             setMostrarFormularioAgregar(false);
