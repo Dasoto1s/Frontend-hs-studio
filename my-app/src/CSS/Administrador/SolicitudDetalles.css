@@ -1,0 +1,77 @@
+/* SolicitudDetalles.css */
+.solicitud-detalles-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.solicitud-detalles-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.solicitud-detalle-fila {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.solicitud-detalle-celda {
+  font-weight: bold;
+  width: 200px;
+}
+
+.solicitud-detalle-valor {
+  flex: 1;
+}
+
+.solicitud-detalle-valor button {
+  margin-left: 10px;
+}
+
+.solicitud-detalles-container .btn-volver {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #8FBDBB;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.solicitud-detalles-container .btn-volver:hover {
+  background-color: #749b99;
+}
+
+.estado-pendiente {
+  color: red;
+  font-weight: bold;
+}
+
+.estado-atendido {
+  color: green;
+  font-weight: bold;
+}
+
+
+
+
+
+.table-container {
+  max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+}
+

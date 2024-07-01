@@ -1,0 +1,57 @@
+.contenedor-principal {
+    max-width: 90rem;
+    margin: 0 auto;
+  }
+  
+  .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8rem;
+  }
+  
+  .descripcion {
+    width: 50%;
+    padding: 0 2rem;
+    font-size: 3rem !important;
+  }
+  
+  .imagen {
+    width: 50%;
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .imagen img {
+    height: 40rem;
+    margin-top: 6rem;
+    margin-right: 1rem;
+  }
+  
+  .mejorPrecio {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-left: 20%;
+    margin-right: 10%;
+  }
+  
+  .imagenMejorPre {
+    width: 13rem;
+    margin-bottom: 3rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+  h3 {
+    margin: 2rem;
+  }
+  .tituloSobreNosotros{
+    text-align: center;
+    margin: 6rem;
+    font-size: 2rem;
+  }
+  .Modulo1-texto{
+    font-size: 0.9rem;
+  }

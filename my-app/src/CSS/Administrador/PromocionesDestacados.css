@@ -1,0 +1,171 @@
+/* PromocionesDestacados.css */
+.container {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  font-size: 14px; /* Reduce el tamaño de fuente */
+}
+
+th, td {
+  padding: 4px; /* Reduce el espaciado entre celdas */
+  text-align: left;
+  border: 1px solid #ddd;
+  overflow: hidden; /* Oculta el contenido que sobresalga */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos (...) al final del texto truncado */
+  white-space: nowrap; /* Evita el ajuste automático de línea del texto */
+}
+
+td {
+  max-width: 100px; /* Ajusta este valor según tus necesidades */
+}
+
+th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+}
+
+tr {
+  height: 30px; /* Ajusta este valor según la altura deseada */
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+td img {
+  max-width: 50px; /* Reduce el tamaño máximo de las imágenes */
+  max-height: 50px; /* Reduce el tamaño máximo de las imágenes */
+  object-fit: contain;
+}
+
+button {
+  background-color: #8FBDBB;
+  color: #fff;
+  border: none;
+  padding: 4px 8px; /* Reduce el padding de los botones */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px; /* Reduce el tamaño de fuente de los botones */
+}
+
+.eliminar {
+  background-color: red; 
+  padding: 4px 8px; /* Reduce el padding del botón eliminar */
+}
+
+
+
+td.descripcion-celda {
+  position: relative;
+}
+
+td.nombre-celda {
+  position: relative;
+}
+
+/* PromocionesDestacados.css */
+/* ... otros estilos ... */
+
+#container-solicitudes {
+  display: flex;
+}
+
+#container-solicitudes .menu {
+  flex: 0 0 250px; /* Establece un ancho fijo de 250px para el menú */
+}
+
+#content-solicitudes {
+  flex: 1;
+  margin-left: 270px; /* Separa el contenido del menú */
+  padding: 20px;
+}
+
+#content-solicitudes table {
+  font-size: 14px; /* Aumenta el tamaño de fuente de la tabla */
+}
+
+#content-solicitudes th,
+#content-solicitudes td {
+  padding: 2px 4px; /* Reduce el espaciado entre celdas */
+  font-size: 14px; /* Aumenta el tamaño de fuente de las celdas */
+}
+
+.buscadorInventario{
+
+  display: inline;
+ 
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 18px;
+ 
+}
+
+button {
+  padding: 3px 16px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+
+
+
+/* css para el buscador de destacados: */
+
+
+
+
+.results-container {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 40px;
+  margin-right: 18px;
+}
+
+
+
+
+.results-table button {
+  padding: 4px 8px; /* Reducir el padding del botón */
+
+}
+
+.table-container {
+  max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
+  overflow-y: auto;
+}
+
+
+
+
+.nombre-celda,
+.descripcion-celda {
+  max-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

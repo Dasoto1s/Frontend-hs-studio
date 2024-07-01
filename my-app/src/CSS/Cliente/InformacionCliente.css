@@ -1,0 +1,150 @@
+.informacion-cliente__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+    min-height: 35rem;
+  }
+  
+  .informacion-cliente__formulario {
+    width: 50%;
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .formulario-compra,
+  .formularioEnvio,
+  .metodoPago {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: none;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  }
+  
+  .formulario-compra.active,
+  .formularioEnvio.active,
+  .metodoPago.active {
+    display: block;
+  }
+  
+  .formulario-compra h3,
+  .formularioEnvio h3,
+  .metodoPago h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .informacion-cliente__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%; /* Asegura que el formulario ocupe todo el ancho */
+  }
+  
+  .informacion-cliente__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%; /* Asegura que cada grupo de formulario ocupe todo el ancho */
+  }
+  
+  .informacion-cliente__form-group label {
+    font-weight: bold;
+  }
+  
+  .informacion-cliente__form-group input,
+  .informacion-cliente__form-group select,
+  .informacion-cliente__form-group textarea {
+    width: 100%; /* Asegura que los inputs ocupen todo el ancho */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+  }
+  
+  .informacion-cliente__submit-btn {
+    align-self: flex-start;
+    background-color: #8FBDBB;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  /* El resto del CSS permanece igual */
+  
+  .informacion-cliente__resumen {
+    width: 45%;
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .informacion-cliente__productos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+  
+  .informacion-cliente__producto-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+  }
+  
+  .informacion-cliente__producto-imagen {
+    height: 6rem;
+    width: 6rem;
+    object-fit: cover;
+    margin-right: 1rem;
+  }
+  
+  .informacion-cliente__producto-details {
+    flex-grow: 1;
+  }
+  
+  .informacion-cliente__producto-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .informacion-cliente__producto-info {
+    font-size: 0.9rem;
+  }
+  
+  .informacion-cliente__eliminar-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  
+  .informacion-cliente__total {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
+  .informacion-cliente__precio {
+    font-weight: bold;
+  }

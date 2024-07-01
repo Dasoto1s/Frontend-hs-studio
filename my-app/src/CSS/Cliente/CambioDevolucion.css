@@ -1,0 +1,111 @@
+/* Estilos para CambioDevolucion.css */
+
+.modulo2 {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  .modulo2__section {
+    max-width: 800px;
+    margin: 8rem auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modulo2__titulo {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .modulo2__parrafo {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .modulo2__lista,
+  .modulo2__lista-ordenada {
+    margin-bottom: 15px;
+    margin-left: 20px;
+  }
+  
+  .modulo2__acordeon {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .modulo2__titulo {
+    
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px 5px 0 0;
+   
+  }
+  .formu:hover{
+    background-color: #bbbaba;
+    cursor: pointer;
+    
+
+  }
+  
+  
+  
+  .modulo2__contenido {
+    display: none;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .modulo2__icono::before {
+    content: '+';
+    margin-right: 5px;
+  }
+  
+  .modulo2__activo .modulo2__icono::before {
+    content: '-';
+  }
+  
+  /* Estilos para los formularios */
+  .modulo2__formulario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modulo2__formulario .modulo2__campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .modulo2__formulario .modulo2__input,
+  .modulo2__formulario .modulo2__textarea,
+  .modulo2__formulario .modulo2__select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .modulo2__formulario .modulo2__boton {
+    padding: 10px 20px;
+    background-color: #8fbdbb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .modulo2__formulario .modulo2__boton:hover {
+    background-color: #8fbdbb;
+  }
+
+  .cambiodevolucion{
+    margin-left: 12rem !important;
+  }
