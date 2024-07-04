@@ -36,6 +36,7 @@ const PromocionesDestacados = () => {
     if (confirmacion) {
       axios.delete(`http://localhost:8080/promociones/${id}`)
         .then(response => {
+          // Actualizar la lista de promociones después de eliminar el producto
           setPromociones(promociones.filter(promocion => promocion.id !== id));
         })
         .catch(error => {
@@ -62,7 +63,7 @@ const PromocionesDestacados = () => {
     const precioOriginal = parseFloat(precio);
     const descuentoDecimal = descuento / 100;
     const precioConDescuento = precioOriginal - (precioOriginal * descuentoDecimal);
-    return Math.floor(precioConDescuento);
+    return Math.floor(precioConDescuento); // Convierte el resultado a un número entero
   };
 
   return (

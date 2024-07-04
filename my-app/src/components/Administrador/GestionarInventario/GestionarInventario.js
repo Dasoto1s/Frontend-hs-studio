@@ -43,7 +43,7 @@ const GestionarInventario = () => {
     if (confirmacion) {
       try {
         await axios.delete(`http://localhost:8080/productos/${idProducto}`);
-        obtenerProductos(); // Actualizar la lista de productos después de eliminar
+        obtenerProductos();
       } catch (error) {
         console.error('Error al eliminar el producto:', error);
       }
@@ -101,7 +101,7 @@ const GestionarInventario = () => {
                     <button onClick={() => handleEditarProducto(producto)}>
                       Editar
                     </button>
-                    <br></br>
+                    <br />
                     <button onClick={() => handleEliminarProducto(producto.idProducto)} className="eliminar">
                       Eliminar
                     </button>
@@ -126,7 +126,6 @@ const GestionarInventario = () => {
             cursor: 'pointer',
             transition: 'background-color 0.3s',
             margin: '1.4rem',
-            backgroundColor: '',
           }}
         >
           Agregar Producto

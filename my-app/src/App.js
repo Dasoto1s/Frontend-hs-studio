@@ -19,7 +19,7 @@ import GestionarInventario from './components/Administrador/GestionarInventario/
 import Destacados from './components/Administrador/Destacados/Destacados';
 import PromocionesDestacados from './components/Administrador/Promociones/PromocionesDestacados';
 import PedidosList from './components/Administrador/Pedidos/PedidosList';
-import SolicitudList from './components/Administrador/CambioDevolucion/SolicitudList ';
+import SolicitudList from './components/Administrador/CambioDevolucion/SolicitudList';
 import GestionarBanner from './components/Administrador/GestionarBanner/GestionarBanner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-responsive-carousel/lib/styles/carousel.min.css";

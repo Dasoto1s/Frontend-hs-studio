@@ -92,9 +92,9 @@ const SolicitudDetalles = () => {
         <div className="solicitud-detalle-celda">Número de contacto del cliente:</div>
         <div className="solicitud-detalle-valor">{solicitud.numeroContactoCliente}</div>
       </div>
-      <Link to="/" className="btn-volver">
-        Volver a la lista de solicitudes
-      </Link>
+      <Link to="/gestionarCambiosDevoluciones" className="btn-volver">
+  Volver a la lista de solicitudes
+</Link>
     </div>
   );
 };

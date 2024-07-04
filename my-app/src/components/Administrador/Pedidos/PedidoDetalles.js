@@ -77,10 +77,7 @@ const PedidoDetalles = () => {
         <div className="detalle-celda">Ciudad:</div>
         <div className="detalle-valor">{pedido.ciudad}</div>
       </div>
-      <div className="detalle-fila">
-        <div className="detalle-celda">Método de Pago:</div>
-        <div className="detalle-valor">{pedido.metodoPagoCliente}</div>
-      </div>
+   
       <div className="detalle-fila">
         <div className="detalle-celda">Número de Productos:</div>
         <div className="detalle-valor">{pedido.numeroProductos}</div>

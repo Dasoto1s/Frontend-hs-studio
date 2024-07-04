@@ -86,7 +86,7 @@ td.nombre-celda {
 
 #content-solicitudes {
   flex: 1;
-  margin-left: 0px; /* Separa el contenido del menú */
+  margin-left: 270px; /* Separa el contenido del menú */
   padding: 20px;
 }
 
@@ -154,18 +154,3 @@ button {
 
 }
 
-.table-container {
-  max-height: 400px; /* Ajusta la altura máxima según tus necesidades */
-  overflow-y: auto;
-}
-
-
-
-
-.nombre-celda,
-.descripcion-celda {
-  max-width: 60px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}

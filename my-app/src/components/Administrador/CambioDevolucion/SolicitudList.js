@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import SideMenu from '../../Administrador/SideMenu';
+import SideMenu from '../SideMenu';
 import '../../../CSS/Administrador/SolicitudList.css';
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,11 @@ const SolicitudList = () => {
   return (
     <div className="container" id="container-solicitudes">
     <SideMenu />
+
     <div className="content cambiodevolucion" id="content-solicitudes">
+
+    <div className="content" id="content-solicitudes">
+
         <h1>Gestión de Cambios y Devoluciones</h1>
         <h2>Lista de solicitudes</h2>
        
@@ -59,6 +63,7 @@ const SolicitudList = () => {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   );
 };
